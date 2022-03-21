@@ -17,7 +17,7 @@ lazy val root = (project in file("."))
         "-Ydelambdafy:method",
         "-target:jvm-1.8",
         "-Yrangepos",
-        "-Ywarn-unused-import"
+        "-Ywarn-unused"
       )
     ),
     libraryDependencies ++= Seq(
