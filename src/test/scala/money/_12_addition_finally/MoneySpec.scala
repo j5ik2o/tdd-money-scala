@@ -28,9 +28,12 @@ class MoneySpec extends AnyFreeSpec {
       assert(five.times(2) == Money.dollar(10))
       assert(five.times(3) == Money.dollar(15))
     }
-    "addtion" in {
-      val sum = Money.dollar(5).plus(Money.dollar(5))
-      assert(sum == Money.dollar(10))
+    "simpleAddition" in {
+      val five           = Money.dollar(5)
+      val sum            = five.plus(five)
+      val bank           = new Bank()
+      val reduced: Money = bank.reduce(sum, "USD")
+      assert(reduced == Money.dollar(10))
     }
     "equals" in {
       assert(Money.dollar(5) == Money.dollar(5))

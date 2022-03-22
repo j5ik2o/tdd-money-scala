@@ -5,12 +5,14 @@ object Money {
   def franc(amount: Int): Money  = new Money(amount, "CHF")
 }
 
-class Money(amt: Int, cur: String) {
+trait Expression {}
+
+class Money(amt: Int, cur: String) extends Expression {
 
   protected def amount: Int = amt
   def currency: String      = cur
 
-  def plus(addend: Money): Money = new Money(amount + addend.amount, currency)
+  def plus(addend: Money): Expression = new Money(amount + addend.amount, currency)
 
   def times(mul: Int): Money = new Money(amount * mul, currency)
 
