@@ -11,6 +11,7 @@ import org.scalatest.freespec.AnyFreeSpec
   * - Moneyの丸め処理をどうする？
   * - _equals()_
   * - hashCode()
+  * - 他のオブジェクトとの等価性比較
   */
 class MoneySpec extends AnyFreeSpec {
   "Money" - {
