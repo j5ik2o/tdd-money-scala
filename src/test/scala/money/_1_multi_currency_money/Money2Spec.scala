@@ -9,7 +9,7 @@ import org.scalatest.freespec.AnyFreeSpec
   */
 class Money2Spec extends AnyFreeSpec {
   "Money" - {
-    "dollarMultiplication" in {
+    "multiplication" in {
       val five = new Dollar2(5)
       five.times(2)
       assert(five.amount == 10)

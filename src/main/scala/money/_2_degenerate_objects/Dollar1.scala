@@ -1,6 +1,6 @@
-package money._1_multi_currency_money
+package money._2_degenerate_objects
 
-class Dollar4(amnt: Int) {
+class Dollar1(amnt: Int) {
   var amount: Int = amnt
   def times(mul: Int): Unit = {
     amount *= mul

@@ -14,12 +14,12 @@ import org.scalatest.freespec.AnyFreeSpec
   */
 class MoneySpec extends AnyFreeSpec {
   "Money" - {
-    "dollarMultiplication" in {
+    "multiplication" in {
       val five = new Dollar(5)
       assert(five.times(2) == new Dollar(10))
       assert(five.times(3) == new Dollar(15))
     }
-    "equals" in {
+    "equality" in {
       assert(new Dollar(5) == new Dollar(5))
       assert(new Dollar(5) != new Dollar(6))
     }

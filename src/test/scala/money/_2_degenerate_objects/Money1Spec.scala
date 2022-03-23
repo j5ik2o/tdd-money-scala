@@ -10,14 +10,14 @@ import org.scalatest.freespec.AnyFreeSpec
   * - *Dollarの副作用をどうする？*
   * - Moneyの丸め処理をどうする？
   */
-class MoneySpec extends AnyFreeSpec {
+class Money1Spec extends AnyFreeSpec {
   "Money" - {
-    "dollarMultiplication" in {
-      val five     = new Dollar(5)
-      val product1 = five.times(2)
-      assert(product1.amount == 10)
-      val product2 = five.times(3)
-      assert(product2.amount == 15)
+    "multiplication" in {
+      val five = new Dollar1(5)
+      five.times(2)
+      assert(five.amount == 10)
+      five.times(3)
+      assert(five.amount == 15) // 失敗する
     }
   }
 }

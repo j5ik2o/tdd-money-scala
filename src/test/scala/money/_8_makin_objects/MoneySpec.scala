@@ -21,7 +21,7 @@ import org.scalatest.freespec.AnyFreeSpec
   */
 class MoneySpec extends AnyFreeSpec {
   "Money" - {
-    "dollarMultiplication" in {
+    "multiplication" in {
       val five = Money.dollar(5)
       assert(five.times(2) == new Dollar(10))
       assert(five.times(3) == new Dollar(15))
@@ -31,7 +31,7 @@ class MoneySpec extends AnyFreeSpec {
       assert(five.times(2) == new Franc(10))
       assert(five.times(3) == new Franc(15))
     }
-    "equals" in {
+    "equality" in {
       assert(new Dollar(5) == new Dollar(5))
       assert(new Dollar(5) != new Dollar(6))
       assert(new Franc(5) == new Franc(5))
