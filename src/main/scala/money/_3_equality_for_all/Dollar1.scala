@@ -7,8 +7,7 @@ class Dollar1(val amount: Int) {
   }
 
   override def equals(other: Any): Boolean = {
-    val dollar = other.asInstanceOf[Dollar1]
-    amount == dollar.amount
+    true
   }
 
 }

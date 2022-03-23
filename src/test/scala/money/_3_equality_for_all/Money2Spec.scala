@@ -21,6 +21,7 @@ class Money2Spec extends AnyFreeSpec {
     }
     "equality" in {
       assert(new Dollar2(5) == new Dollar2(5))
+      assert(new Dollar2(5) != new Dollar2(6))
     }
   }
 }
