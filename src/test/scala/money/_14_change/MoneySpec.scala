@@ -1,4 +1,4 @@
-package money._13_make_it
+package money._14_change
 
 import org.scalatest.freespec.AnyFreeSpec
 
@@ -22,17 +22,27 @@ import org.scalatest.freespec.AnyFreeSpec
   * - _testFrancMultiplicationを削除する？_
   */
 class MoneySpec extends AnyFreeSpec {
-  "times" - {
+  "Money" - {
     "multiplication" in {
       val five = Money.dollar(5)
       assert(five.times(2) == Money.dollar(10))
       assert(five.times(3) == Money.dollar(15))
     }
+    "equality" in {
+      assert(Money.dollar(5) == Money.dollar(5))
+      assert(Money.dollar(5) != Money.dollar(6))
+      assert(Money.franc(5) != Money.dollar(5))
+    }
+    "currency" - {
+      assert(Money.dollar(1).currency == "USD")
+      assert(Money.franc(1).currency == "CHF")
+    }
     "simpleAddition" in {
-      val sum     = Sum(Money.dollar(3), Money.dollar(4))
+      val five    = Money.dollar(5)
+      val result  = five.plus(five)
       val bank    = new Bank()
-      val reduced = bank.reduce(sum, "USD")
-      assert(reduced == Money.dollar(7))
+      val reduced = bank.reduce(result, "USD")
+      assert(reduced == Money.dollar(10))
     }
     "plusReturnsSum" in {
       val five   = Money.dollar(5)
@@ -41,19 +51,25 @@ class MoneySpec extends AnyFreeSpec {
       assert(sum.augend == five)
       assert(sum.addend == five)
     }
+    "reduceSum" in {
+      val sum    = Sum(Money.dollar(3), Money.dollar(4))
+      val bank   = new Bank()
+      val result = bank.reduce(sum, "USD")
+      assert(result == Money.dollar(7))
+    }
     "reduceMoney" in {
       val bank   = new Bank()
       val result = bank.reduce(Money.dollar(1), "USD")
       assert(result == Money.dollar(1))
     }
-    "equals" in {
-      assert(Money.dollar(5) == Money.dollar(5))
-      assert(Money.dollar(5) != Money.dollar(6))
-      assert(Money.franc(5) != Money.dollar(5))
+    "reduceMoneyDifferentCurrency" in {
+      val bank = new Bank()
+      bank.addRate("CHF", "USD", 2)
+      val result = bank.reduce(Money.franc(2), "USD")
+      assert(result == Money.dollar(1))
     }
-    "currency" - {
-      assert(Money.dollar(1).currency == "USD")
-      assert(Money.franc(1).currency == "CHF")
+    "identityRate" in {
+      assert(new Bank().rate("USD", "USD") == 1)
     }
   }
 }
