@@ -5,11 +5,13 @@ object Money {
   def franc(amount: Int): Franc   = new Franc(amount)
 }
 
-trait Money {
-  protected def amount: Int
+abstract class Money(protected val amount: Int) {
+
   override def equals(other: Any): Boolean = {
     val money = other.asInstanceOf[Money]
     amount == money.amount && getClass == money.getClass
   }
+
   def times(mul: Int): Money
+
 }

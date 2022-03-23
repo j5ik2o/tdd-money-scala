@@ -7,10 +7,7 @@ object Money {
 
 trait Expression {}
 
-class Money(amt: Int, cur: String) extends Expression {
-
-  protected def amount: Int = amt
-  def currency: String      = cur
+class Money(protected val amount: Int, val currency: String) extends Expression {
 
   def plus(addend: Money): Expression = new Money(amount + addend.amount, currency)
 

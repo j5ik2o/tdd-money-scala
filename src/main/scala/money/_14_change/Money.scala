@@ -9,14 +9,11 @@ trait Expression {
   def reduce(bank: Bank, to: String): Money
 }
 
-class Money(amt: Int, cur: String) extends Expression {
-
-  def amount: Int      = amt
-  def currency: String = cur
+class Money(val amount: Int, val currency: String) extends Expression {
 
   override def reduce(bank: Bank, to: String): Money = {
     val rate = bank.rate(currency, to)
-    new Money(amt / rate, to)
+    new Money(amount / rate, to)
   }
 
   def plus(addend: Expression): Expression = Sum(this, addend)
