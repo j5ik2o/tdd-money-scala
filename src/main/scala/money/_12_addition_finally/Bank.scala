@@ -1,5 +1,9 @@
 package money._12_addition_finally
 
+import scala.annotation.unused
+
 class Bank {
-  def reduce(sum: Expression, str: String): Money = Money.dollar(10)
+
+  def reduce(@unused sum: Expression, @unused str: String): Money = Money.dollar(10)
+
 }

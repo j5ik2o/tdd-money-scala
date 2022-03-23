@@ -1,6 +1,8 @@
 package money._1_multi_currency_money
 
-class Dollar1(amnt: Int) {
+import scala.annotation.unused
+
+class Dollar1(@unused mnt: Int) {
   val amount: Int = 10
-  def times(mul: Int): Unit = {}
+  def times(@unused mul: Int): Unit = {}
 }

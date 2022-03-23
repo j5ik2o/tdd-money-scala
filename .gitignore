@@ -11,3 +11,7 @@ project/target
 dumps/
 .bsp/
 .bloop/
+
+.metals/
+metals.sbt
+.vscode/

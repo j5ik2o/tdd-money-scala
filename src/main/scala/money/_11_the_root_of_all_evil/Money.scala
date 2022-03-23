@@ -1,8 +1,11 @@
 package money._11_the_root_of_all_evil
 
 object Money {
+
   def dollar(amount: Int): Money = new Money(amount, "USD")
-  def franc(amount: Int): Money  = new Money(amount, "CHF")
+
+  def franc(amount: Int): Money = new Money(amount, "CHF")
+
 }
 
 class Money(protected val amount: Int, val currency: String) {

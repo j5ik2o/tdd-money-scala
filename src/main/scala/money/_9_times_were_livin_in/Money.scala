@@ -1,8 +1,11 @@
 package money._9_times_were_livin_in
 
 object Money {
+
   def dollar(amount: Int): Dollar = new Dollar(amount, "USD")
-  def franc(amount: Int): Franc   = new Franc(amount, "CHF")
+
+  def franc(amount: Int): Franc = new Franc(amount, "CHF")
+
 }
 
 abstract class Money(protected val amount: Int, val currency: String) {
