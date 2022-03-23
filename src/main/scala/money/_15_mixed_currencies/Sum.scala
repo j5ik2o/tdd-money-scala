@@ -1,4 +1,4 @@
-package money._14_change
+package money._15_mixed_currencies
 
 case class Sum(augend: Expression, addend: Expression) extends Expression {
   override def reduce(bank: Bank, currency: String): Money = {
@@ -6,4 +6,5 @@ case class Sum(augend: Expression, addend: Expression) extends Expression {
     new Money(amount, currency)
   }
 
+  override def plus(expression: Expression): Expression = ???
 }

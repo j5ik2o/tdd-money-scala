@@ -1,4 +1,4 @@
-package money._14_change
+package money._15_mixed_currencies
 
 object Money {
   def dollar(amount: Int): Money = new Money(amount, "USD")
@@ -6,6 +6,7 @@ object Money {
 }
 
 trait Expression {
+  def plus(expression: Expression): Expression
   def reduce(bank: Bank, to: String): Money
 }
 
@@ -19,7 +20,7 @@ class Money(amt: Int, cur: String) extends Expression {
     new Money(amt / rate, to)
   }
 
-  def plus(addend: Expression): Expression = Sum(this, addend)
+  override def plus(addend: Expression): Expression = Sum(this, addend)
 
   def times(mul: Int): Money = new Money(amount * mul, currency)
 

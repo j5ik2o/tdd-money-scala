@@ -2,7 +2,7 @@ package money._11_the_root_of_all_evil
 
 import org.scalatest.freespec.AnyFreeSpec
 
-/** 第10章 テストに聞いてみる
+/** 第11章 不要になったら消す
   *
   * - $5 + 10 CHF = $10 (レートが2:1の場合)
   * - _$5 * 2 = $10_
@@ -21,20 +21,20 @@ import org.scalatest.freespec.AnyFreeSpec
   * - _testFrancMultiplicationを削除する？_
   */
 class MoneySpec extends AnyFreeSpec {
-  "times" - {
+  "Money" - {
     "multiplication" in {
       val five = Money.dollar(5)
       assert(five.times(2) == Money.dollar(10))
       assert(five.times(3) == Money.dollar(15))
     }
-    "currency" - {
-      assert(Money.dollar(1).currency == "USD")
-      assert(Money.franc(1).currency == "CHF")
-    }
-    "equals" in {
+    "equality" in {
       assert(Money.dollar(5) == Money.dollar(5))
       assert(Money.dollar(5) != Money.dollar(6))
       assert(Money.franc(5) != Money.dollar(5))
+    }
+    "currency" - {
+      assert(Money.dollar(1).currency == "USD")
+      assert(Money.franc(1).currency == "CHF")
     }
   }
 }

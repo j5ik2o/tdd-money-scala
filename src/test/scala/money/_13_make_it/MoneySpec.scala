@@ -2,7 +2,7 @@ package money._13_make_it
 
 import org.scalatest.freespec.AnyFreeSpec
 
-/** 第10章 テストに聞いてみる
+/** 第13章 実装を導くテスト
   *
   * - $5 + 10 CHF = $10 (レートが2:1の場合)
   * - *$5 + $5 = $10*
@@ -28,6 +28,15 @@ class MoneySpec extends AnyFreeSpec {
       assert(five.times(2) == Money.dollar(10))
       assert(five.times(3) == Money.dollar(15))
     }
+    "equality" in {
+      assert(Money.dollar(5) == Money.dollar(5))
+      assert(Money.dollar(5) != Money.dollar(6))
+      assert(Money.franc(5) != Money.dollar(5))
+    }
+    "currency" - {
+      assert(Money.dollar(1).currency == "USD")
+      assert(Money.franc(1).currency == "CHF")
+    }
     "simpleAddition" in {
       val sum     = Sum(Money.dollar(3), Money.dollar(4))
       val bank    = new Bank()
@@ -41,19 +50,16 @@ class MoneySpec extends AnyFreeSpec {
       assert(sum.augend == five)
       assert(sum.addend == five)
     }
+    "reduceSum" in {
+      val sum    = Sum(Money.dollar(3), Money.dollar(4))
+      val bank   = new Bank()
+      val result = bank.reduce(sum, "USD")
+      assert(result == Money.dollar(7))
+    }
     "reduceMoney" in {
       val bank   = new Bank()
       val result = bank.reduce(Money.dollar(1), "USD")
       assert(result == Money.dollar(1))
-    }
-    "equals" in {
-      assert(Money.dollar(5) == Money.dollar(5))
-      assert(Money.dollar(5) != Money.dollar(6))
-      assert(Money.franc(5) != Money.dollar(5))
-    }
-    "currency" - {
-      assert(Money.dollar(1).currency == "USD")
-      assert(Money.franc(1).currency == "CHF")
     }
   }
 }

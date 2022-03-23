@@ -2,7 +2,7 @@ package money._12_addition_finally
 
 import org.scalatest.freespec.AnyFreeSpec
 
-/** 第10章 テストに聞いてみる
+/** 第12章 設計とメタファー
   *
   * - $5 + 10 CHF = $10 (レートが2:1の場合)
   * - *$5 + $5 = $10*

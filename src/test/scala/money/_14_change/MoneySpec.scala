@@ -2,7 +2,7 @@ package money._14_change
 
 import org.scalatest.freespec.AnyFreeSpec
 
-/** 第10章 テストに聞いてみる
+/** 第14章 学習用テストと回帰テスト
   *
   * - $5 + 10 CHF = $10 (レートが2:1の場合)
   * - *$5 + $5 = $10*
@@ -39,9 +39,9 @@ class MoneySpec extends AnyFreeSpec {
     }
     "simpleAddition" in {
       val five    = Money.dollar(5)
-      val result  = five.plus(five)
+      val sum     = five.plus(five)
       val bank    = new Bank()
-      val reduced = bank.reduce(result, "USD")
+      val reduced = bank.reduce(sum, "USD")
       assert(reduced == Money.dollar(10))
     }
     "plusReturnsSum" in {
