@@ -2,15 +2,17 @@ package money._11_the_root_of_all_evil
 
 object Money {
 
+  // 戻り値をMoneyに変更
   def dollar(amount: Int): Money = new Money(amount, "USD")
 
+  // 戻り値をMoneyに変更
   def franc(amount: Int): Money = new Money(amount, "CHF")
 
 }
 
+// Dollar, Francを削除
 class Money(protected val amount: Int, val currency: String) {
 
-  // この実装は不適切。仮実装ならOK
   override def equals(other: Any): Boolean = {
     val money = other.asInstanceOf[Money]
     amount == money.amount && currency == money.currency

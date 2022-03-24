@@ -8,15 +8,17 @@ object Money {
 
 }
 
+// 式
 trait Expression {}
 
+// 式を実装
 class Money(protected val amount: Int, val currency: String) extends Expression {
 
+  // 加算
   def plus(addend: Money): Expression = new Money(amount + addend.amount, currency)
 
   def times(mul: Int): Money = new Money(amount * mul, currency)
 
-  // この実装は不適切。仮実装ならOK
   override def equals(other: Any): Boolean = {
     val money = other.asInstanceOf[Money]
     amount == money.amount && currency == money.currency

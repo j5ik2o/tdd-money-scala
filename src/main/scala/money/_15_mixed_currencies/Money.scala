@@ -1,13 +1,19 @@
 package money._15_mixed_currencies
 
 object Money {
+
   def dollar(amount: Int): Money = new Money(amount, "USD")
-  def franc(amount: Int): Money  = new Money(amount, "CHF")
+
+  def franc(amount: Int): Money = new Money(amount, "CHF")
+
 }
 
 trait Expression {
+
   def plus(expression: Expression): Expression
+
   def reduce(bank: Bank, to: String): Money
+
 }
 
 class Money(val amount: Int, val currency: String) extends Expression {

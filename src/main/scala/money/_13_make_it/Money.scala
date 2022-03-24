@@ -1,16 +1,23 @@
 package money._13_make_it
 
 object Money {
+
   def dollar(amount: Int): Money = new Money(amount, "USD")
-  def franc(amount: Int): Money  = new Money(amount, "CHF")
+
+  def franc(amount: Int): Money = new Money(amount, "CHF")
+
 }
 
 trait Expression {
+
+  // 畳み込み
   def reduce(to: String): Money
+
 }
 
 class Money(val amount: Int, val currency: String) extends Expression {
 
+  // 自分自身を畳み込んでも複製がかえる
   override def reduce(to: String): Money = new Money(amount, to)
 
   def plus(addend: Money): Expression = new Sum(this, addend)
