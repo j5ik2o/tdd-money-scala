@@ -1,4 +1,4 @@
-package money._2_degenerate_objects
+package money._02_degenerate_objects
 
 class Dollar2(amnt: Int) {
 

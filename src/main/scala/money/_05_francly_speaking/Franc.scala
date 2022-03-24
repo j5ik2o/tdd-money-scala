@@ -1,4 +1,4 @@
-package money._5_francly_speaking
+package money._05_francly_speaking
 
 class Franc(private val amount: Int) {
 
