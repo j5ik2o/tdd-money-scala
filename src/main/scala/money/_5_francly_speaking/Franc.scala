@@ -1,6 +1,7 @@
 package money._5_francly_speaking
 
 class Franc(private val amount: Int) {
+
   def times(mul: Int): Franc = {
     new Franc(amount * mul)
   }
@@ -9,4 +10,5 @@ class Franc(private val amount: Int) {
     val franc = other.asInstanceOf[Franc]
     amount == franc.amount
   }
+
 }
