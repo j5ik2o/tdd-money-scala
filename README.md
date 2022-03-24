@@ -2,7 +2,7 @@
 
 テスト駆動開発の多国籍通貨のテストをScalaで書いたものです。
 
-- [第1章 仮実装](main/src/test/scala/money/_1_multi_currency_money)
+- [第1章 仮実装](src/test/scala/money/_1_multi_currency_money)
 - 第2章 明白な実装
 - 第3章 三角測量
 - 第4章 意図を語るテスト
