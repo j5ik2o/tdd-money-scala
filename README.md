@@ -1,4 +1,4 @@
-# tdd-ddd-sandbox
+# TDDにおける多国籍通貨の例
 
 [テスト駆動開発](https://amzn.to/3upuEXW)の多国籍通貨のテストをScalaで書いたものです。
 
