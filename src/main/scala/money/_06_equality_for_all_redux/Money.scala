@@ -1,5 +1,6 @@
 package money._06_equality_for_all_redux
 
+// equalsの一般化
 abstract class Money(protected val amount: Int) {
 
   // この実装は不適切。仮実装ならOK
