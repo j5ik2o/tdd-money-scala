@@ -38,7 +38,7 @@ class MoneySpec extends AnyFreeSpec {
       assert(Money.franc(1).currency == "CHF")
     }
     "simpleAddition" in {
-      val sum     = Sum(Money.dollar(3), Money.dollar(4))
+      val sum     = new Sum(Money.dollar(3), Money.dollar(4))
       val bank    = new Bank()
       val reduced = bank.reduce(sum, "USD")
       assert(reduced == Money.dollar(7))
@@ -51,7 +51,7 @@ class MoneySpec extends AnyFreeSpec {
       assert(sum.addend == five)
     }
     "reduceSum" in {
-      val sum    = Sum(Money.dollar(3), Money.dollar(4))
+      val sum    = new Sum(Money.dollar(3), Money.dollar(4))
       val bank   = new Bank()
       val result = bank.reduce(sum, "USD")
       assert(result == Money.dollar(7))

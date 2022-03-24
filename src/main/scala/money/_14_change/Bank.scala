@@ -2,13 +2,16 @@ package money._14_change
 
 import scala.collection.mutable
 
-case class FromTo(from: String, to: String)
+final case class FromTo(from: String, to: String)
 
 class Bank {
+
   private val rates = mutable.Map.empty[FromTo, Int]
+
   def reduce(source: Expression, currency: String): Money = {
     source.reduce(this, currency)
   }
+
   def addRate(from: String, to: String, rate: Int): Unit = {
     rates += (FromTo(from, to) -> rate)
   }
