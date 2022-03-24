@@ -7,7 +7,7 @@ class Dollar1(val amount: Int) {
   }
 
   override def equals(other: Any): Boolean = {
-    true
+    true // 仮実装
   }
 
 }

@@ -22,6 +22,7 @@ class Money(val amount: Int, val currency: String) extends Expression {
 
   override def times(mul: Int): Expression = new Money(amount * mul, currency)
 
+  // この実装は不適切。仮実装ならOK
   override def equals(other: Any): Boolean = {
     val money = other.asInstanceOf[Money]
     amount == money.amount && currency == money.currency
