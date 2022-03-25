@@ -1,5 +1,7 @@
 package money._13_make_it
 
+import scala.util.Try
+
 object Money {
 
   def dollar(amount: Int): Money = new Money(amount, "USD")
@@ -16,7 +18,7 @@ trait Expression {
 }
 
 class Money(val amount: Int, val currency: String) extends Expression {
-
+  val r: Either[String, Int] = Try(1).toEither.left.map { case ex: Expression => "" }
   // 自分自身を畳み込んでも複製がかえる
   override def reduce(to: String): Money = new Money(amount, to)
 

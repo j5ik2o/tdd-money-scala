@@ -1,4 +1,4 @@
-package money._08_makin_objects
+package money._08_makin_objects.inheritance
 
 object Money {
 

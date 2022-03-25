@@ -1,4 +1,4 @@
-package money._08_makin_objects
+package money._08_makin_objects.inheritance
 
 import org.scalatest.freespec.AnyFreeSpec
 
@@ -37,6 +37,17 @@ class MoneySpec extends AnyFreeSpec {
       assert(new Franc(5) == new Franc(5))
       assert(new Franc(5) != new Franc(6))
       assert(new Franc(5) != new Dollar(5))
+    }
+    "inheritance" in {
+      def times(m: Money, mul: Int): Money = {
+        m.times(mul)
+      }
+      val dfive = new Dollar(5)
+      assert(times(dfive, 2) == new Dollar(10))
+      assert(times(dfive, 3) == new Dollar(15))
+      val ffive = new Franc(5)
+      assert(times(ffive, 2) == new Franc(10))
+      assert(times(ffive, 3) == new Franc(15))
     }
   }
 }
